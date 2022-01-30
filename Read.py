@@ -1,9 +1,21 @@
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv('C:\DataCsv\TEMP.ade', sep = ';', header = 0, squeeze = True)
+headerList  = ["Sample_No", "C"]
+
+df = pd.read_csv('C:\DataCsv\TEMP.ade',sep = ';', squeeze = True)
+
+df.columns=df.columns.str.strip()
+df.columns = df.columns.str.replace(' ','_')
+
+for index, row in df.iterrows():
+     print(row["Sample_No"], row["C"][3:1000])
+
+#for row in df:
+       #print(row['Sample_No'], row['C'])
+
 df
-#df.to_excel("C:\Python_Data_Project\data.xlsx", index=None, header=True)
+
 
 
 
